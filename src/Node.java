@@ -13,9 +13,21 @@ public class Node {
 		this.name = pName;
 	}
 	
+	/**
+	 * get all nodes children
+	 * @return List<Node>
+	 */
+	public List<Node> getChildren(){
+		List<Node> nodes = new ArrayList<Node>();
+		for(Edge e: this.edges) {
+			nodes.add(e.getDestiny());
+		}
+		return nodes;
+	}
+	
 	/*
 	 * Get all egde
-	 * @return Set
+	 * @return String
 	*/
 	public String getEdges(){
 		String out = this.name + " =>";
@@ -32,7 +44,7 @@ public class Node {
 	 * @return Boolean
 	*/
 	public boolean addEdge(Node pDestiny){
-		addInDestiny(this, pDestiny);
+		//addInDestiny(this, pDestiny);
 		return edges.add(new Edge(this,pDestiny));
 		
 	}

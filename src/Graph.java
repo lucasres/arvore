@@ -50,7 +50,20 @@ public class Graph  {
 		System.out.print("Grau:");
 		for(Integer i:graus) {
 			System.out.print(i+",");
-		}	
+		}
+		System.out.println("");
+	}
+	
+	public int getHeigth(Node node, int heigth) {
+		if(node.getChildren().isEmpty()) {
+			return heigth;
+		} else {
+			List<Integer> aux = new ArrayList<Integer>();
+			for(Node n : node.getChildren()) {
+				aux.add(getHeigth(n, heigth+1));
+			}
+			return Collections.max(aux);
+		}
 	}
 	
 }
